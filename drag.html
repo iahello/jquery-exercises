@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
+            color: white;
+        } 
+        .drag1, .drag2, .drag3, .drag4, .drag5, .drag6 {
+            width: 200px;
+            height: 200px;
+        }
+        .drag1 {
+            background-color: blue;
+        }
+        .drag2 {
+            background-color: red;
+        }
+        .drag3 {
+            background-color: green;
+        }
+        .drag4 {
+            background-color: violet;
+        }
+        .drag5 {
+            background-color: orange;
+        }
+        .drag6 {
+            background-color: red;
+        }
+        span {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag1">You can't move me</div>
+    <div class="drag2">Dragging will start after 50px</div>
+    <div class="drag3">You'll have to wait 500ms</div>
+    <div class="drag4"><span>Containment</span></div>
+    <div class="drag5"><span>x-axis only</span></div>
+    <div class="drag6">Duplicate me</div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+    <script>
+        $(".drag1").draggable({disabled:true});
+        $(".drag2").draggable({distance: 50});
+        $(".drag3").draggable({delay: 500});
+        $(".drag4 span").draggable({containment: "parent"});
+        $(".drag5 span").draggable({axis:"x"});
+        $(".drag6").draggable({helper: "clone"});
+    </script>
+</body>
+</html>

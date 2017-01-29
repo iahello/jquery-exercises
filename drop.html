@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+        } 
+        .drag {
+            width: 300px;
+            height: 200px;
+            background-color: red;;
+        }
+        .drop {
+            width: 500px;
+            height: 400px;
+            background-color: orange;;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag">drag me</div>
+    <div class="drop"><p>drop here</p></div>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(".drag").draggable();
+        $(".drop").droppable({
+            drop: function( event, ui ) {
+            $( this )
+            .addClass( "highlight" )
+            .find( "p" )
+                .html( "Dropped!" );
+            }
+        });   
+    </script>
+</body>
+</html>
