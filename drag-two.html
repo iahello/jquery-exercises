@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz #2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="square girl">VALID</div>
+    <div class="square boy">INVALID</div>
+    <div class="parking">Target Area</div><br>
+    <p></p>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(".girl").draggable({
+            revert: "valid",
+            drag: function(event,ui){
+                $("p").html("This object will go back to its origin once its dropped in target.");
+            }
+        });
+        $(".boy").draggable({
+            revert: "invalid",
+            drag: function(event,ui){
+                $("p").html("This object will go back to its origin, unless its dropped in target zone");
+            }
+        });
+        $(".parking").droppable({
+            drop: function(event, ui) {
+                $(this).addClass("highlight");
+            },  
+            out: function(event, ui) {
+                $(this).removeClass("highlight");
+            }
+        }); 
+    </script>
+</body>
+</html>

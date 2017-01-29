@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz #1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="square girl"></div>
+    <div class="square boy"></div>
+    <div class="boyparking"><p>Boys Only</p></div>
+    <div class="girlparking"><p>Girls Only</p></div>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(".square").draggable();
+        $(".girlparking").droppable({
+            accept: ".girl",
+            drop: function( event, ui ) {
+                $(this).addClass("highlight");
+            },
+            out: function( event, ui ) {
+                $(this).removeClass("highlight");
+            }
+        }); 
+        $(".boyparking").droppable({
+            accept: ".boy",
+            drop: function( event, ui ) {
+                $(this).addClass("highlight");
+            },
+            out: function( event, ui ) {
+                $(this).removeClass("highlight");
+            }
+        });
+    </script>
+</body>
+</html>
